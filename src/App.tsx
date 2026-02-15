@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Dashboard } from './pages/Dashboard';
-import { NavBar } from './components/NavBar';
+// import { NavBar } from './components/NavBar';
 
 /*function PrivateRoute({ children }: { children: JSX.Element }) {
   const token = localStorage.getItem("@todo:token");
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Register />} />
