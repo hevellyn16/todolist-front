@@ -170,7 +170,7 @@ export function Dashboard() {
                 <header className="flex justify-between items-center mb-8">
                     <h1 className="text-3xl font-bold text-gray-800 leading-none">Minhas Tarefas</h1>
                     <button 
-                        className=" text-black cursor-pointer rounded-full font-bold transition-colors hover:text-[#b71651] hover:scale-110 hover:bg-[#ffe0e0] p-2"
+                        className=" text-black cursor-pointer rounded-full font transition-colors hover:text-[#b71651] hover:scale-110 hover:bg-[#ffe0e0] p-2"
                         onClick={() => setCreatingTask(true)}
                         
                     >

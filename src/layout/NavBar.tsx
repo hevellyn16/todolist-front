@@ -18,9 +18,10 @@ export const NavBar = () => {
                         title="Navegue por aqui sz"
                     >
                         <div className="flex flex-col justify-center items-center space-y-4">
-                            <Link to="/dashboard" className="text-lg font-bold" onClick={() => setOpenMenu(false)}>./src/dashboard</Link>
-                            <Link to="/profile" className="text-lg font-bold" onClick={() => setOpenMenu(false)}>./src/meuperfil (não funcionando ainda)</Link>
-                            <Link to="/files" className="text-lg font-bold" onClick={() => setOpenMenu(false)}>./src/pastas (não funcionando ainda)</Link>
+                            <Link to="/dashboard" className="text-lg font" onClick={() => setOpenMenu(false)}>./src/dashboard</Link>
+                            <Link to="/profile" className="text-lg font" onClick={() => setOpenMenu(false)}>./src/meuperfil (não funcionando ainda)</Link>
+                            <Link to="/files" className="text-lg font" onClick={() => setOpenMenu(false)}>./src/pastas (não funcionando ainda)</Link>
+                            <Link to="/login" className="text-lg font text-red-400 font-medium" onClick={() => setOpenMenu(false)}>Sair</Link>
                         </div>
                     </Modal>
                 )}
