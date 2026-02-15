@@ -1,44 +1,40 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
+import { Register } from "./pages/Register"; 
 import { Dashboard } from './pages/Dashboard';
-// import { NavBar } from './components/NavBar';
+import { NavBar } from './layout/NavBar';
+import { AnimatePresence } from 'framer-motion';
 
-/*function PrivateRoute({ children }: { children: JSX.Element }) {
-  const token = localStorage.getItem("@todo:token");
-  return token ? children : <Navigate to="/login" />;
-}  */
+function AppContent() {
+  const location = useLocation();
 
-function App() {
+  const hideNavBarPaths = ["/login", "/users"];
+  const showNavBar = !hideNavBarPaths.includes(location.pathname);
 
   return (
     <>
-    <BrowserRouter>
-      {/* <NavBar /> */}
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/users" element={<Register />} />
+      {showNavBar && <NavBar />}
 
-        <Route
-          path="*"
-          element={
-            <Navigate to="/login" />
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <Navigate to="/login" />
-          }
-        />
-
-
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/users" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-        
-      </Routes>
-    </BrowserRouter>
+
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </AnimatePresence>
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+export default App;
